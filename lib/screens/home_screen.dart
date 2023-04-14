@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:crud_firebase/services/firebase_service.dart';
 
 
-class Home extends StatefulWidget {
-  const Home({
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({
     super.key,
   });
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +35,13 @@ class _HomeState extends State<Home> {
             );
           }
         }),),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await Navigator.pushNamed(context, '/add');
+            setState(() {} );
+          },
+          child: const Icon(Icons.add),
+          ),
     );
   }
 }

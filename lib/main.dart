@@ -1,5 +1,7 @@
-import 'package:crud_firebase/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:crud_firebase/screens/add_pet_screen.dart';
+import 'package:crud_firebase/screens/home_screen.dart';
+
 
 //importaciones de Firebase
 import 'package:firebase_core/firebase_core.dart';
@@ -18,10 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: Home(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/add': (context) => const AddPetScreen(),
+      },
     );
   }
 }

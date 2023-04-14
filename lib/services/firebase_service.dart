@@ -14,3 +14,21 @@ Future<List> getPets() async{
 
   return pets;
 }
+
+// Guardar una nueva mascota en la base de datos
+Future<void> addPet(String newPet) async {
+  await db.collection('pets').add({'name': newPet});
+  
+}
+
+// Ejemplo de la estructura de la colección pets
+// {
+//   'pets':[
+//     {
+//       'name': 'Blackie'
+//     },
+//     {
+//       'name': 'Ginger'
+//     },
+//   ]
+// }
