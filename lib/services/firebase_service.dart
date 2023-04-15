@@ -16,8 +16,8 @@ Future<List> getPets() async{
 }
 
 // Guardar una nueva mascota en la base de datos
-Future<void> addPet(String newPet) async {
-  await db.collection('pets').add({'name': newPet});
+Future<void> addPet(String newPet, String newSpecie) async {
+  await db.collection('pets').add({'name': newPet, 'especie': newSpecie});
   
 }
 

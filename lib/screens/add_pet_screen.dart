@@ -11,6 +11,7 @@ class AddPetScreen extends StatefulWidget {
 class _AddPetScreenState extends State<AddPetScreen> {
 
   TextEditingController newPetController = TextEditingController(text: '');
+  TextEditingController newSpecieController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +26,21 @@ class _AddPetScreenState extends State<AddPetScreen> {
              TextField(
               controller: newPetController,
               decoration:  const InputDecoration(
-                hintText: 'Escribe nombre de mascota',
+                hintText: 'Escribe el nombre de la mascota',
+              ),
+            ),
+            TextField(
+              controller: newSpecieController,
+              decoration:  const InputDecoration(
+                hintText: 'Escribe la especie de la mascota',
               ),
             ),
             ElevatedButton(
               onPressed: () async {
-                await addPet(newPetController.text).then((_) {
+                await addPet(newPetController.text, newSpecieController.text).then((_) {
                   Navigator.pop(context);
                 });
-              }, 
+              },
               child: const Text('Guardar'),
               ),
           ],

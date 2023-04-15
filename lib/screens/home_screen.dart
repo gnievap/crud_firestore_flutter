@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
             return ListView.builder(
             itemCount: snapshot.data?.length,
             itemBuilder: (context, index){
-              return Center(child: Text(snapshot.data?[index]['name']));
+              return ListTile(
+                title: Text(snapshot.data?[index]['name']),
+                subtitle: Text(snapshot.data?[index]['especie']),
+                leading: const  Icon(Icons.pets),
+              );
+              
+              //return Center(child: Text(snapshot.data?[index]['name']));
             },
             );
           }
