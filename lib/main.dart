@@ -1,3 +1,4 @@
+import 'package:crud_firebase/screens/edit_pet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:crud_firebase/screens/add_pet_screen.dart';
 import 'package:crud_firebase/screens/home_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeScreen(),
         '/add': (context) => const AddPetScreen(),
+        '/edit': (context) => const EditPetScreen(),
       },
     );
   }

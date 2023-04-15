@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firebase con flutter'),
+        title: const Text('Mis mascotas'),
       ),
       body: FutureBuilder(
         future: getPets(),
@@ -30,6 +30,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: Text(snapshot.data?[index]['name']),
                 subtitle: Text(snapshot.data?[index]['especie']),
                 leading: const  Icon(Icons.pets),
+                onTap: ( () async {
+                  await Navigator.pushNamed(context, '/edit', arguments: {
+                    'name'  : snapshot.data?[index]['name'],
+                    'specie': snapshot.data?[index]['especie'],
+                    'petId' : snapshot.data?[index]['petId'],
+                  });
+                  setState(() {
+                    
+                  });
+                }),
               );
               
               //return Center(child: Text(snapshot.data?[index]['name']));
